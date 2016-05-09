@@ -5,7 +5,6 @@
   <groupId>com.image.recognition</groupId>
   <artifactId>ImageRecognition</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
   <dependencies>
 	  <dependency>
 	    <groupId>junit</groupId>
