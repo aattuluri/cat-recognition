@@ -20,17 +20,18 @@
   "threshold": ["abc@gmail.com", "xyz@gmail.com"]
 }
 ```
-**Key - Requirement - Data type**  
+**Key - Required - Data type**  
 _______________________________________   
-*image* - mandatory - String  
+*image* - Mandatory - String  
 Base64 encoded text matrix  
-*threshold* - mandatory - Number  
-A value between (25.0 to 100.0), specifies the minimum confidence with which the cat image could be located in the submitted image
+
+*threshold* - Optional - Number  
+A value between (25.0 to 100.0), specifies the minimum confidence with which the cat image should be located in the submitted image
 
 ##Response
 **Response code - Description**  
 _______________________________   
-**200** - The response json looks like below:  
+**200** - The JSON response:  
 ```javascript
 {
   "matches": [
@@ -42,7 +43,7 @@ _______________________________
   ]
 }
 ```
-The response contains an array of 0 or more matches. Each match contains the position (x, y) values of the cat image and the confidence for that match.
+The response contains an array of 0 or more matches. Each match contains the position (x, y) values of the found cat image and the confidence for that match.
 
 **400** - Bad request (one or more mandatory parameters are missing or empty)
   
