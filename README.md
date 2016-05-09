@@ -47,8 +47,8 @@ _______________________________
 The response contains an array of 0 or more matches. Each match contains the position (x, y) values of the found cat image and the confidence for that match.
 
 **400** - Bad request  
-i) 'image' field is missing or empty or is not Base64 encoded
-ii) 'image' field size exceeds 2Mb
-iii) 'threshold' field doesn't have a valid value between 25.0 and 100.0
+i) 'image' field is missing or empty or is not Base64 encoded  
+ii) 'image' field size exceeds 2Mb  
+iii) 'threshold' field doesn't have a valid value between 25.0 and 100.0  
   
 #Future work
