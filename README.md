@@ -2,10 +2,10 @@
 **Cat Recognition** is a REST API service to detect cat images in a given image. It uses a simple template matching algorithm with matching threshold support to handle the noise factor. The original cat template image is a constant. The images have to be text matrices and binary, meaning they can only have 2 types of characters (For Ex: + and space)
 
 #Frameworks and Libraries
-**Languages:** Java (1.8) 
-**Web container:** Spark - A micro framework for creating web applications
-**Build tool:** Maven   
-**Libraries:**  Jackson, Lompok, JUnit, EasyMock, Guava
+**Languages:** Java (1.8)  
+**Web container:** Spark - A micro framework for creating web applications  
+**Build tool:** Maven  
+**Libraries:** Jackson, Lompok, JUnit, EasyMock, Guava  
 
 #REST API Documentation
 
