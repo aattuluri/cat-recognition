@@ -2,7 +2,6 @@ package com.image.recognition.handlers;
 
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import com.image.recognition.AbstractRequestHandler;
 import com.image.recognition.Result;
@@ -14,8 +13,6 @@ public class CatImageRecognitionHandler extends AbstractRequestHandler <ImageRec
 		super(ImageRecognitionPayload.class);
 	}
 
-	private static final Logger logger = Logger.getLogger(CatImageRecognitionHandler.class.getCanonicalName());
-
 	@Override
 	protected Result processImpl (ImageRecognitionPayload value, Map<String, String> urlParams) {
 		CatImageRecognition cir = new CatImageRecognition(value.getImage(), value.getThreshold());
@@ -23,7 +20,6 @@ public class CatImageRecognitionHandler extends AbstractRequestHandler <ImageRec
 		ImageRecognitionPayload irp = new ImageRecognitionPayload();
 		irp.setMatches(matches);
 		String responseBody = dataToJson(irp);
-		logger.info(responseBody);
 		return new Result (200, responseBody);
 	}
 }

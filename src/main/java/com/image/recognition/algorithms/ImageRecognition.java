@@ -8,7 +8,6 @@ import com.image.recognition.handlers.Match;
 
 public class ImageRecognition {
 	
-	@SuppressWarnings("unused")
 	private static final Logger logger = Logger.getLogger(ImageRecognition.class.getCanonicalName());
 	
 	private Double threshold = 100.0;
@@ -77,11 +76,11 @@ public class ImageRecognition {
 		                } else {
 		                	numMismatches++;
 		                }
-		                if (numMismatches >= numMismatchesToSkipFrame) {
+		                if (numMismatches > numMismatchesToSkipFrame) {
 		                	break;
 		                }
 		            }
-		            if (numMismatches >= numMismatchesToSkipFrame) {
+		            if (numMismatches > numMismatchesToSkipFrame) {
 	                	break;
 	                }
 			    }
@@ -91,10 +90,13 @@ public class ImageRecognition {
 				
 				//check if the confidence is greater than the threshold, if so add the match
 				if (confidence >= getThreshold()) {
-					matchPositions.add(new Match (x, y, confidence));
+					matchPositions.add(new Match (x, y, Math.round(confidence *100.0)/100.0));
 				}
 		    }
 		}
+		
+		logger.info("Match count: " + matchPositions.size());
+		
 		return matchPositions;
 	}
 	
