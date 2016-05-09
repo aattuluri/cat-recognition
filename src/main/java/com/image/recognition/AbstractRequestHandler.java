@@ -49,6 +49,7 @@ public abstract class AbstractRequestHandler <P extends Validable> implements Re
     @Override
     public Object handle(Request request, Response response) throws Exception {
         try {
+        	long currTime = System.currentTimeMillis();
             ObjectMapper objectMapper = new ObjectMapper();
             P value = null;
             value = objectMapper.readValue(request.body(), valueClass);
@@ -57,6 +58,7 @@ public abstract class AbstractRequestHandler <P extends Validable> implements Re
             response.status(result.getCode());
             response.type("application/json");
             response.body(result.getBody());
+            logger.info("Time taken for request: " + (System.currentTimeMillis() - currTime));
             return result.getBody();
         } catch (JsonMappingException e) {
             response.status(400);
