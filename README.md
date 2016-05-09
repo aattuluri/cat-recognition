@@ -17,7 +17,7 @@
 ```javascript
 {
   "image": "KyAgICAgICAgICAgICArCisrKyAgICAgICAgICsrKwogKysrKysrKysrKysrKwogKysgICAgICAgICArKworKyAgKyAgICAgKyAgKysKKysgKysrICAgKysrICsrCisrICAgICAgICAgICArKwogKysgICArKysgICArKwogKysgICAgICAgICArKwogICsrICsgICArICsrCiAgKysgICsrKyAgKysKICAgKysgICAgICsrCiAgICAgKysrKysKCiAgICAgICAgICAgICAgIAo=",              
-  "threshold": ["abc@gmail.com", "xyz@gmail.com"]
+  "threshold": 75.0
 }
 ```
 **Key - Required - Data type**  
