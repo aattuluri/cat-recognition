@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Base64;
+import java.util.LinkedList;
 import java.util.logging.Logger;
 
 import com.image.recognition.handlers.CatImageRecognitionHandler;
@@ -37,6 +38,7 @@ public class Utils {
 	 */
 	public static Byte [][] getTextMatrix (String fileContent) 
 		throws IllegalArgumentException {
+		logger.info(fileContent);
 		return getTextMatrix (fileContent.getBytes());
 	}
 	
@@ -51,12 +53,33 @@ public class Utils {
 		throws IllegalArgumentException {
 		InputStream is = null;
         BufferedReader bfReader = null;
+        Byte [][] matrix = null;
         try {
             is = new ByteArrayInputStream(fileContent);
             bfReader = new BufferedReader(new InputStreamReader(is));
             String temp = null;
+            int numLines = 0;
+            int maxLineLength = 0;
+            LinkedList<String> rows = new LinkedList<String> ();
             while((temp = bfReader.readLine()) != null){
-            	logger.info(temp);
+            	rows.add(temp);
+            	if (temp.length() > maxLineLength) {
+            		maxLineLength = temp.length();
+            	}
+            	numLines++;
+            }
+            matrix = new Byte [numLines][maxLineLength];
+            int row = 0;
+            for (String s: rows) {
+            	int p = 0;
+            	for (p = 0; p < s.length(); p++) {
+            		matrix[row][p] = (byte) s.charAt(p);
+            	}
+            	while (p < maxLineLength) {
+            		matrix[row][p] = (byte) ' ';
+            		p++;
+            	}
+            	row++;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -67,7 +90,7 @@ public class Utils {
                  
             }
         }
-		return new Byte [10][10];
+		return matrix;
 	}
 	
 }

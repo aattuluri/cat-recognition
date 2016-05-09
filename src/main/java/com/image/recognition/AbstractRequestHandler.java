@@ -2,6 +2,7 @@ package com.image.recognition;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import spark.Request;
 import spark.Response;
@@ -10,8 +11,11 @@ import spark.Route;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.image.recognition.handlers.CatImageRecognitionHandler;
 
 public abstract class AbstractRequestHandler <P extends Validable> implements RequestHandler<P>, Route {
+	
+	private static final Logger logger = Logger.getLogger(CatImageRecognitionHandler.class.getCanonicalName());
 	
     private Class<P> valueClass;
 

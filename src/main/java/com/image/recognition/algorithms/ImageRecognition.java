@@ -1,10 +1,13 @@
 package com.image.recognition.algorithms;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.image.recognition.handlers.Match;
 
 abstract public class ImageRecognition {
+	
+	private static final Logger logger = Logger.getLogger(ImageRecognition.class.getCanonicalName());
 	
 	private Double threshold = 100.0;
 	private Byte [][] sourceImageMatrix;

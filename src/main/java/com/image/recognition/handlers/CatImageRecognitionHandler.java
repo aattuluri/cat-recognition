@@ -18,7 +18,6 @@ public class CatImageRecognitionHandler extends AbstractRequestHandler <ImageRec
 
 	@Override
 	protected Result processImpl (ImageRecognitionPayload value, Map<String, String> urlParams) {
-		logger.info(value.getImage());
 		CatImageRecognition cir = new CatImageRecognition(value.getImage(), value.getThreshold());
 		List<Match> matches = cir.find();
 		ImageRecognitionPayload irp = new ImageRecognitionPayload();
