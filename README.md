@@ -8,7 +8,7 @@
 **Libraries:** Jackson, Lompok, JUnit, EasyMock, Guava  
 
 #REST API Documentation
-The URL for the API(s) is http://107.170.237.114. Following is the list of APIs with Request and Response for each API.
+The URL for the APIs' is http://107.170.237.114. Following is the list of APIs' with Request and Response for each API.
 ##Cat Image Recognition
 ###Request
 **Path:** /cat-image-recognition  
