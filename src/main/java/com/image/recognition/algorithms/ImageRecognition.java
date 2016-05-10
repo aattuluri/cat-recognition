@@ -1,22 +1,33 @@
 package com.image.recognition.algorithms;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
 
 import com.image.recognition.handlers.Match;
+import com.image.recognition.utils.Utils;
 
 public class ImageRecognition {
 	
 	private static final Logger logger = Logger.getLogger(ImageRecognition.class.getCanonicalName());
 	
+	final static String PERFECT_CAT_IMAGE_BASE64 = "KyAgICAgICAgICAgICArCisrKyAgICAgICAgICsrKwogKysrKysrKysrKysrKwogKysgICAgICAgICArKworKyAgKyAgI"
+			+ "CAgKyAgKysKKysgKysrICAgKysrICsrCisrICAgICAgICAgICArKwogKysgICArKysgICArKwogKysgICAgICAgICArKwogI"
+			+ "CsrICsgICArICsrCiAgKysgICsrKyAgKysKICAgKysgICAgICsrCiAgICAgKysrKysKCiAgICAgICAgICAgICAgIAo=";
+	
+	private static HashMap<TemplateImageType, Byte [][]> templateImages;
+	
+	static {
+		templateImages = new HashMap<TemplateImageType, Byte [][]> ();
+		templateImages.put(TemplateImageType.CAT, Utils.getTextMatrixFromBase64(PERFECT_CAT_IMAGE_BASE64));
+	}
+	
 	private Double threshold = 100.0;
-	private Byte [][] sourceImageMatrix;
 	private Byte [][] targetImageMatrix;
 	
-	public ImageRecognition (Byte [][] sourceImage, Byte [][] targetImage, 
+	public ImageRecognition (Byte [][] targetImage, 
 			Double threshold) {
-		sourceImageMatrix = sourceImage;
 		targetImageMatrix = targetImage;
 		if (null != threshold) {
 			if (threshold >= 50.0 && threshold <= 100.0) {
@@ -33,14 +44,6 @@ public class ImageRecognition {
 		this.threshold = threshold;
 	}
 
-	public Byte[][] getSourceImageMatrix() {
-		return sourceImageMatrix;
-	}
-
-	public void setSourceImageMatrix(Byte[][] sourceImageMatrix) {
-		this.sourceImageMatrix = sourceImageMatrix;
-	}
-
 	public Byte[][] getTargetImageMatrix() {
 		return targetImageMatrix;
 	}
@@ -49,9 +52,9 @@ public class ImageRecognition {
 		this.targetImageMatrix = targetImageMatrix;
 	}
 
-	public List<Match> find () {
+	public List<Match> find (TemplateImageType templateImageType) {
 		
-		Byte [][] srcImage = getSourceImageMatrix();
+		Byte [][] srcImage = templateImages.get(templateImageType);
 		Byte [][] targetImage = getTargetImageMatrix();
 		
 		List<Match> matchPositions = new LinkedList<Match> ();
