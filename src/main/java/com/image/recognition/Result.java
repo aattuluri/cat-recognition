@@ -12,10 +12,10 @@ public class Result {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Result answer = (Result) o;
+        Result result = (Result) o;
 
-        if (code != answer.code) return false;
-        if (body != null ? !body.equals(answer.body) : answer.body != null) return false;
+        if (code != result.code) return false;
+        if (body != null ? !body.equals(result.body) : result.body != null) return false;
 
         return true;
     }

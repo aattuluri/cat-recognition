@@ -20,7 +20,7 @@ public class ImageRecognitionPayload implements Validable {
 	@JsonIgnore
 	public boolean isValid () {
 		return (image != null && !image.isEmpty()
-					&& image.length() <= 2097152);
+					&& image.length() <= 1048576);
 	}
 	
 	public String getImage() {
