@@ -56,7 +56,6 @@ public class CatImageRecognitionHandlerTest {
         payload.setImage("This is not valid Base64");
         CatImageRecognitionHandler handler = new CatImageRecognitionHandler();
         Result result = handler.process(payload, Collections.emptyMap());
-        logger.info (result.getCode() + "");
         assertEquals(new Result(400), result);
     }
 
