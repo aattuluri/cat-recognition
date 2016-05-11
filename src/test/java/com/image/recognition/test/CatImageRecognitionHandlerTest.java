@@ -58,6 +58,18 @@ public class CatImageRecognitionHandlerTest {
         Result result = handler.process(payload, Collections.emptyMap());
         assertEquals(new Result(400), result);
     }
+    
+    @Test
+    public void anOutOfRangeThresholdBadRequest() {
+        ImageRecognitionPayload payload = new ImageRecognitionPayload();
+        payload.setImage("KyAgICAgICAgICAgICArCisrKyAgICAgICAgICsrKwogKysrKysrKysrKysrKwogKysgICAgICAgICArKworKyAgKyAgICAgKyAgKysKKysgKy"
+        		+ "srICAgKysrICsrCisrICAgICAgICAgICArKwogKysgICArKysgICArKwogKysgICAgICAgICArKwogICsrICsgICArICsrCiAgKysgICsrKyAgKysKICA"
+        		+ "gKysgICAgICsrCiAgICAgKysrKysKCiAgICAgICAgICAgICAgIAo=");
+        payload.setThreshold(11.0);
+        CatImageRecognitionHandler handler = new CatImageRecognitionHandler();
+        Result result = handler.process(payload, Collections.emptyMap());
+        assertEquals(new Result(400), result);
+    }
 
     @Test
     public void aCatImageIsRecognized() {
