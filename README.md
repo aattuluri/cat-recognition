@@ -24,7 +24,7 @@ The URL for the APIs' is http://107.170.237.114. Following is the list of APIs' 
 **Key - Required - Data type**  
 _______________________________________   
 *image* - Mandatory - String  
-Base64 encoded text matrix (containing only the characters + and space). The size of this field be less than or equals 2 Mb
+Base64 encoded text matrix (containing only the characters + and space). The size of this field should be less than or equals 1 MiB
 
 *threshold* - Optional - Number  
 A value between (25.0 to 100.0), specifies the minimum confidence with which the cat image should be located in the submitted image
