@@ -14,7 +14,7 @@ public class ImageRecognitionService {
 	
     public static void main( String[] args) {
     	
-    	port (9001);
+    	port (80);
        
     	get("/ping", new Route() {
             @Override

@@ -7,21 +7,17 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import org.junit.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.image.recognition.Result;
-import com.image.recognition.algorithms.ImageRecognition;
 import com.image.recognition.handlers.CatImageRecognitionHandler;
 import com.image.recognition.handlers.ImageRecognitionPayload;
 import com.image.recognition.handlers.Match;
 
 public class CatImageRecognitionHandlerTest {
-	
-	private static final Logger logger = Logger.getLogger(ImageRecognition.class.getCanonicalName());
 	
 	public String dataToJson(Object data) {
         try {
