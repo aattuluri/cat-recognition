@@ -5,7 +5,7 @@
 **Languages:** Java (1.8)  
 **Web container:** Spark - A micro framework for creating web applications  
 **Build tool:** Maven  
-**Libraries:** Jackson, Lompok, JUnit, EasyMock, Guava  
+**Libraries:** Jackson, Lompok, JUnit  
 
 #REST API Documentation
 The URL for the APIs' is http://107.170.237.114:9001/  
